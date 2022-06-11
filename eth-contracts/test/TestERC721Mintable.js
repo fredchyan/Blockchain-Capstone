@@ -1,4 +1,4 @@
-var ERC721MintableComplete = artifacts.require("ERC721MintableComplete");
+var UdacityERC721Token = artifacts.require("UdacityERC721Token");
 
 contract("TestERC721Mintable", (accounts) => {
   const account_one = accounts[0];
@@ -6,12 +6,7 @@ contract("TestERC721Mintable", (accounts) => {
 
   describe("match erc721 spec", function () {
     beforeEach(async function () {
-      this.contract = await ERC721MintableComplete.new(
-        "Udacity",
-        "UDA",
-        "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/",
-        { from: account_one }
-      );
+      this.contract = await UdacityERC721Token.new({ from: account_one });
 
       // TODO: mint multiple tokens
       for (let i = 0; i < 10; i++) {
@@ -55,12 +50,7 @@ contract("TestERC721Mintable", (accounts) => {
 
   describe("have ownership properties", function () {
     beforeEach(async function () {
-      this.contract = await ERC721MintableComplete.new(
-        "Udacity",
-        "UDA",
-        "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/",
-        { from: account_one }
-      );
+      this.contract = await UdacityERC721Token.new({ from: account_one });
     });
 
     it("should fail when minting when address is not contract owner", async function () {

@@ -619,12 +619,14 @@ contract ERC721Metadata is ERC721Enumerable {
 }
 
 //  TODO's: Create CustomERC721Token contract that inherits from the ERC721Metadata contract. You can name this contract as you please
-contract ERC721MintableComplete is ERC721Metadata {
-    constructor(
-        string memory name,
-        string memory symbol,
-        string memory baseTokenURI
-    ) ERC721Metadata(name, symbol, baseTokenURI) {}
+contract UdacityERC721Token is ERC721Metadata {
+    constructor()
+        ERC721Metadata(
+            "Udacity",
+            "UDA",
+            "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/"
+        )
+    {}
 
     //  1) Pass in appropriate values for the inherited ERC721Metadata contract
     //      - make the base token uri: https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/
