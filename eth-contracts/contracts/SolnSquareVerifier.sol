@@ -37,6 +37,7 @@ contract SolnSquareVerifier is UdacityERC721Token {
         Solution memory newSolution = Solution(solutions.length, msg.sender);
         solutionIndices[solutionKey] = solutions.length;
         solutions.push(newSolution);
+        emit SolutionAdded(newSolution);
     }
 
     function getSolutionKey(uint256[2] memory input)
